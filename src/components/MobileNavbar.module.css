@@ -1,0 +1,82 @@
+.mobileNavbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  z-index: 1000;
+  transform: translateY(-100%); /* começa escondida */
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.show {
+  transform: translateY(0); /* desliza para baixo */
+  opacity: 1;
+}
+
+.hide {
+  transform: translateY(-100%); /* volta para cima */
+  opacity: 0;
+}
+
+/* Barra superior */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+.lojaNome {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.icon {
+  font-size: 20px;
+  color: #555;
+  cursor: pointer;
+}
+
+/* Lista de categorias (scroll horizontal) */
+.categorias {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 8px 0;
+}
+
+.categorias ul {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0 16px;
+  list-style: none;
+}
+
+.categorias li {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 141, 0);
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.categorias li:hover {
+  background: rgba(0, 123, 0, 0.251);
+}
+
+/* Scrollbar mais suave */
+.categorias::-webkit-scrollbar {
+  height: 6px;
+}
+.categorias::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 3px;
+}

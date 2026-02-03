@@ -1,12 +1,33 @@
+import { useState, useEffect } from "react"
 import './App.css'
 import HeaderLoja from './components/HeaderLoja'
 import SearchBar from './components/SearchBar'
 import { Categoria } from './components/Categoria'
 import BottomNav from './components/BottomNav'
+import MobileNavbar from './components/MobileNavbar'
+
 
  
 
 export default function App() {
+  const [showNavbar, setShowNavbar] = useState(false)
+  const [isWide, setIsWide] = useState(window.innerWidth > 900)
+
+
+  useEffect(() => {
+  const handleResize = () => setIsWide(window.innerWidth > 900)
+  const handleScroll = () => setShowNavbar(window.scrollY > 100)
+
+  window.addEventListener("resize", handleResize)
+  window.addEventListener("scroll", handleScroll)
+
+  // cleanup
+  return () => {
+    window.removeEventListener("resize", handleResize)
+    window.removeEventListener("scroll", handleScroll)
+  }
+}, [])
+
   
 const categorias = [
   {
@@ -29,7 +50,9 @@ const categorias = [
 
   return (
     <>
-      <div className='container'>
+      <div className={` ${isWide ? "container" : ""}`}>
+         <MobileNavbar lojaNome="Minha Loja" categorias={categorias.map(titulo => titulo.titulo)} visible={showNavbar} />
+
         <div className='header'>
         <img src="../assets/img/loja/loja1.jpg" alt="" />
         </div>
