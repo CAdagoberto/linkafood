@@ -71,6 +71,7 @@ const categorias = [
               key={index} 
               titulo={p.titulo} 
               produtos={p.produtos} 
+              id={p.titulo}
             />
           ))}
 

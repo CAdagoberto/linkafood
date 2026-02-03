@@ -12,7 +12,9 @@ export default function MobileNavbar({ lojaNome, categorias, visible }) {
       <div className={styles.categorias}>
         <ul>
           {categorias.map((cat, index) => (
-            <li key={index}>{cat}</li>
+            <li key={index}>
+              <a href={`#${cat}`}>{cat}</a>
+            </li>
           ))}
         </ul>
       </div>

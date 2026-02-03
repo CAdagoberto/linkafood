@@ -72,6 +72,11 @@
   background: rgba(0, 123, 0, 0.251);
 }
 
+.categorias li a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Scrollbar mais suave */
 .categorias::-webkit-scrollbar {
   height: 6px;
