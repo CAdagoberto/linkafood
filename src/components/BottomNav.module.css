@@ -1,0 +1,38 @@
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+  z-index: 3;
+}
+
+.bottomNav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.bottomNav li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.bottomNav li svg {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.bottomNav li:hover {
+  color: #007bff;
+}

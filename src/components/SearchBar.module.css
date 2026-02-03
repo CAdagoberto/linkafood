@@ -1,0 +1,12 @@
+.searchApp input {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.searchApp input:focus {
+  outline: none;
+}

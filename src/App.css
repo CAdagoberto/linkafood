@@ -1,0 +1,48 @@
+/* Container */
+.container {
+  padding: 0 16px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+}
+
+/* Header */
+.header {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.header img {
+  width: 100%;
+  display: block;
+}
+
+
+/* BodyApp */
+.bodyApp {
+  background-color: #fff;
+  border-radius: 20px 20px 0 0;
+  margin-top: -20px;
+  position: relative;
+  z-index: 2;
+}
+
+
+.bodyContainer {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+
+
+
+
+
