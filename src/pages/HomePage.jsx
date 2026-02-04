@@ -8,7 +8,6 @@ export default function HomePage() {
      const [showNavbar, setShowNavbar] = useState(false)
       const [isWide, setIsWide] = useState(window.innerWidth > 900)
     
-    
       useEffect(() => {
       const handleResize = () => setIsWide(window.innerWidth > 900)
       const handleScroll = () => setShowNavbar(window.scrollY > 100)
@@ -38,7 +37,9 @@ export default function HomePage() {
         titulo: "Promoções",
         produtos: [
           { titulo: "Produto 3", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "2", valorProd: 30.90 },
-          { titulo: "Produto 4", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "5", valorProd: 40.90 }
+          { titulo: "Produto 4", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "5", valorProd: 40.90 },
+          { titulo: "Produto 3", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "2", valorProd: 30.90 },
+          { titulo: "Produto 3", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "2", valorProd: 30.90 },
         ]
       }
     ]
