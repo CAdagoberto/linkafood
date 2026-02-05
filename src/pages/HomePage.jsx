@@ -39,14 +39,17 @@ export default function HomePage() {
       return <p>Nenhum produto encontrado</p>
     }
       
-    const categorias = [...new Set(produtos.map(c => c.titulo))]
+    const categorias = produtos.map(c => ({
+      id: c.id,
+      titulo: c.titulo
+    }))
 
     
 
     return (
         <>
         <div className={` ${isWide ? "container" : ""}`}>
-                 <MobileNavbar lojaNome="Minha Loja" categorias={categorias} visible={showNavbar} />
+                 <MobileNavbar lojaNome="Minha Loja" categorias={categorias}  visible={showNavbar} />
         
                 <div className='header'>
                 <img src="../assets/img/loja/loja1.jpg" alt="" />

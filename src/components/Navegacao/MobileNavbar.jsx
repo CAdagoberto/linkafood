@@ -1,7 +1,7 @@
 import { FaHome, FaShoppingCart } from "react-icons/fa"
 import styles from "./MobileNavbar.module.css"
 
-export default function MobileNavbar({ lojaNome, categorias, visible }) {
+export default function MobileNavbar({ lojaNome, categorias = [], visible }) {
   return (
     <header className={`${styles.mobileNavbar} ${visible ? styles.show : styles.hide}`}>
       <div className={styles.topBar}>
@@ -13,7 +13,7 @@ export default function MobileNavbar({ lojaNome, categorias, visible }) {
         <ul>
           {categorias.map((cat, index) => (
             <li key={index}>
-              <a href={`#${cat}`}>{cat}</a>
+              <a href={`#${cat.id}`}>{cat.titulo}</a>
             </li>
           ))}
         </ul>
