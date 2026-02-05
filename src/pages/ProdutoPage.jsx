@@ -1,82 +1,62 @@
-
-import { useState, useEffect } from "react"
-import HeaderLoja from '../components/HeaderLoja'
-import SearchBar from '../components/SearchBar'
-import { Categoria } from '../components/CategoriaProduto/Categoria'
-import MobileNavbar from '../components/Navegacao/MobileNavbar'
-
+import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import ProdutoService from "../services/produtos.service"
 
 export default function ProdutoPage() {
-const [showNavbar, setShowNavbar] = useState(false)
-      const [isWide, setIsWide] = useState(window.innerWidth > 900)
-    
-    
-      useEffect(() => {
+  const [isWide, setIsWide] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(false)
+
+  const { id } = useParams()
+
+  const [produto, setProduto] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+
+  useEffect(() => {
+    ProdutoService.getProdutoById(id)
+      .then(data => {
+        setProduto(data)
+        setLoading(false)
+      })
+      .catch(() => {
+        setError(true)
+        setLoading(false)
+      })
+  }, [id])
+
+  useEffect(() => {
       const handleResize = () => setIsWide(window.innerWidth > 900)
       const handleScroll = () => setShowNavbar(window.scrollY > 100)
-    
+
       window.addEventListener("resize", handleResize)
       window.addEventListener("scroll", handleScroll)
-    
-      // cleanup
+
       return () => {
         window.removeEventListener("resize", handleResize)
         window.removeEventListener("scroll", handleScroll)
       }
     }, [])
 
-    const categorias = [
-      {
-        titulo: "Destaques",
-        produtos: [
-          { titulo: "Produto 1", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "3", valorProd: 50.90 },
-          { titulo: "Produto 2", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "4", valorProd: 60.90, img: "assets/img/pratos/sushi.jpg" },
-          { titulo: "Produto 2", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "4", valorProd: 60.90, img: "assets/img/pratos/sushi.jpg" },
-          { titulo: "Produto 2", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "4", valorProd: 60.90, img: "assets/img/pratos/sushi.jpg" }
-        ]
-      },
-      {
-        titulo: "Promoções",
-        produtos: [
-          { titulo: "Produto 3", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "2", valorProd: 30.90 },
-          { titulo: "Produto 4", desc: "Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", qtdPessoas: "5", valorProd: 40.90 }
-        ]
-      }
-    ]
+  if (loading) return <p>Carregando produto...</p>
+  if (error) return <p>Produto não encontrado</p>
 
   return (
-    <>
-        <div className={` ${isWide ? "container" : ""}`}>
-                         <MobileNavbar lojaNome="Minha Loja" categorias={categorias.map(titulo => titulo.titulo)} visible={showNavbar} />
-                
-                        <div className='header'>
-                        <img src="../assets/img/loja/loja1.jpg" alt="" />
-                        </div>
-                
-                        <div className="bodyApp">
-                          <div className="container bodyContainer">
-                            {/* header loja */}
-                            <HeaderLoja nomeLoja={"Nome loja exemplo"} horarioFunc={"exemplo de horario 17h às 22h"}/>
-                
-                            {/* Pesquisa produtos */}
-                            <SearchBar />
-                
-                            {/* Categorias */}
-                            {categorias.map((p, index) => (
-                            <Categoria 
-                              key={index} 
-                              titulo={p.titulo} 
-                              produtos={p.produtos} 
-                              id={p.titulo}
-                            />
-                          ))}
-                
-                            
-                          </div>
-                
-                        </div>
-                        
-                      </div>
-    </>
+    <div className={` ${isWide ? "container" : ""}`}>
+      <div className="header">
+        <img src={produto.imagem} alt={produto.titulo} />
+      </div>
+
+      <div className="bodyApp">
+        <div className="container bodyContainer">
+
+          <h3>{produto.titulo}</h3>
+          <p>{produto.descricao}</p>
+
+          <h3 className="valor">
+            R$ {produto.preco.toFixed(2)}
+          </h3>
+        </div>
+      </div>
+    </div>
   )
 }

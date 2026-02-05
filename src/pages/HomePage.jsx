@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import HeaderLoja from '../components/HeaderLoja'
 import SearchBar from '../components/SearchBar'
 import { Categoria } from '../components/CategoriaProduto/Categoria'
-import {getProdutos} from '../services/produtos.service'
+import ProdutoService  from '../services/produtos.service'
 import MobileNavbar from '../components/Navegacao/MobileNavbar'
 
 export default function HomePage() {
@@ -12,11 +12,20 @@ export default function HomePage() {
     const [loading, setLoading] = useState(true)  
 
     useEffect(() => {
-      getProdutos().then(data => {
+    async function carregarProdutos() {
+      try {
+        const data = await ProdutoService.getProdutos()
         setProdutos(data)
+      } catch (err) {
+        console.error(err)
+      } finally {
         setLoading(false)
-      })
-    }, [])
+      }
+    }
+
+    carregarProdutos()
+  }, [])
+
 
     
       useEffect(() => {

@@ -1,8 +1,8 @@
 import styles from './ProdutoItem.module.css'
 
-export function ProdutoItem({ titulo, desc, qtdPessoas, valorProd, img }) {
+export function ProdutoItem({ titulo, desc, qtdPessoas, valorProd, img, id }) {
   return (
-    <a href={`produtos/${titulo}`} className={styles.item}>
+    <a href={`/produto/${id}`} className={styles.item}>
       <div className={styles.itemContent}>
         <h4>{titulo}</h4>
         <p>{desc}</p>
