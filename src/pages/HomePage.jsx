@@ -65,7 +65,7 @@ export default function HomePage() {
                 </div>
         
                 <div className="bodyApp">
-                  <div className="container bodyContainer">
+                  <div className="bodyContainer">
                     {/* header loja */}
                     <HeaderLoja nomeLoja={"Nome loja exemplo"} horarioFunc={"exemplo de horario 17h às 22h"}/>
         

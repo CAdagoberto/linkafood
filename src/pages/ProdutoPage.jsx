@@ -47,7 +47,7 @@ export default function ProdutoPage() {
       </div>
 
       <div className="bodyApp">
-        <div className="container bodyContainer">
+        <div className="bodyContainer">
 
           <h3>{produto.titulo}</h3>
           <p>{produto.descricao}</p>
