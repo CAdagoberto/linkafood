@@ -2,7 +2,7 @@ import styles from './ProdutoItem.module.css'
 
 export function ProdutoItem({ titulo, desc, qtdPessoas, valorProd, img }) {
   return (
-    <div className={styles.item}>
+    <a href={`produtos/${titulo}`} className={styles.item}>
       <div className={styles.itemContent}>
         <h4>{titulo}</h4>
         <p>{desc}</p>
@@ -12,6 +12,6 @@ export function ProdutoItem({ titulo, desc, qtdPessoas, valorProd, img }) {
       <div className={styles.itemImg}>
         <img src={img ?? "/assets/img/pratos/sushi.jpg"} alt={titulo} />
       </div>
-    </div>
+    </a>
   )
 }

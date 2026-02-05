@@ -40,3 +40,8 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #bbb #eaeaea;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
