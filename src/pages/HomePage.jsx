@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 import HeaderLoja from '../components/HeaderLoja'
 import SearchBar from '../components/SearchBar'
-import { Categoria } from '../components/Categoria'
+import { Categoria } from '../components/CategoriaProduto/Categoria'
 import {getProdutos} from '../services/produtos.service'
-import MobileNavbar from '../components/MobileNavbar'
+import MobileNavbar from '../components/Navegacao/MobileNavbar'
 
 export default function HomePage() {
     const [showNavbar, setShowNavbar] = useState(false)

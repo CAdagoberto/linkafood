@@ -2,8 +2,8 @@
 import { useState, useEffect } from "react"
 import HeaderLoja from '../components/HeaderLoja'
 import SearchBar from '../components/SearchBar'
-import { Categoria } from '../components/Categoria'
-import MobileNavbar from '../components/MobileNavbar'
+import { Categoria } from '../components/CategoriaProduto/Categoria'
+import MobileNavbar from '../components/Navegacao/MobileNavbar'
 
 
 export default function ProdutoPage() {

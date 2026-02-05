@@ -1,4 +1,4 @@
-import { ListaProdutos } from "./ListaProdutos"
+import { ListaProdutos } from "../Produtos/ListaProdutos"
 import style from "./Categoria.module.css"
 
 export function Categoria({ id, titulo, produtos = [] }) {
