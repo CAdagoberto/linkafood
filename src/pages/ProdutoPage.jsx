@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { BiAlarm, BiSolidStoreAlt  } from "react-icons/bi";
+
 import ProdutoService from "../services/produtos.service"
+import style from "./ProdutoPage.module.css"
 
 export default function ProdutoPage() {
   const [isWide, setIsWide] = useState(false)
@@ -48,13 +51,32 @@ export default function ProdutoPage() {
 
       <div className="bodyApp">
         <div className="bodyContainer">
+          
+            <div className={style.headerContent}>
+              <h3>{produto.titulo}</h3>
+              <p>{produto.descricao}</p>
+            </div>
 
-          <h3>{produto.titulo}</h3>
-          <p>{produto.descricao}</p>
+            <h4>Serve {produto.qtdPessoas} Pessoas</h4>
 
-          <h3 className="valor">
-            R$ {produto.preco.toFixed(2)}
-          </h3>
+            <h3 className="valor">
+              R$ {produto.preco.toFixed(2)}
+            </h3>
+
+            <div className={style.empresaContent}>
+              <div className={style.empresaHeader}>
+              <BiSolidStoreAlt className={style.icon} />
+                <h5>Nome da loja - Localização</h5>
+              </div>
+              <div className={style.temPreparo}>
+                <BiAlarm className={style.icon} />
+                <h5>Preparo: {/* Tempo de preparo */}</h5>
+              </div>
+
+
+            </div>
+         
+          
         </div>
       </div>
     </div>

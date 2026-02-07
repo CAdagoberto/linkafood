@@ -1,3 +1,5 @@
+import { FaWineGlassEmpty } from "react-icons/fa6";
+
 // mocks/produtos.mock.js
 export const produtosMock = [
   {
@@ -26,7 +28,37 @@ export const produtosMock = [
         descricao: "and more recently with desktop publishing software like Aldus PageMaker",
         preco: 80.9,
         qtdPessoas: 4,
-        imagem: "/assets/img/pratos/sushi1.jpg"
+        imagem: "/assets/img/pratos/sushi1.jpg",
+        acompanhamento: [
+          {
+            id: '1',
+            titulo: "Escolha sua base",
+            obg: false,
+            produtos: [
+              {
+                id: "1",
+                titulo: "Temaky",
+                descricao: "and more recently with desktop publishing software like Aldus PageMaker",
+                preco: null,
+                imagem: "/assets/img/pratos/sushi1.jpg"
+              }
+            ]
+          },
+          {
+            id: '2',
+            titulo: "Bebida",
+            obg: false,
+            produtos: [
+              {
+                id: "1",
+                titulo: "Temaky",
+                descricao: "and more recently with desktop publishing software like Aldus PageMaker",
+                preco: null,
+                imagem: "/assets/img/pratos/sushi1.jpg"
+              }
+            ]
+          }
+        ]
       },
       {
         id: "4",
