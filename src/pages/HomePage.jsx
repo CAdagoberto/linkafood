@@ -4,6 +4,7 @@ import SearchBar from '../components/SearchBar'
 import { Categoria } from '../components/CategoriaProduto/Categoria'
 import ProdutoService  from '../services/produtos.service'
 import MobileNavbar from '../components/Navegacao/MobileNavbar'
+import ProdutoSkeleton from "../components/Loading/ProdutoSkeleton";
 
 export default function HomePage() {
     const [showNavbar, setShowNavbar] = useState(false)
@@ -42,7 +43,7 @@ export default function HomePage() {
     }, [])
 
 
-    if(loading) return <p>Carregando...</p>
+    if(loading) return <ProdutoSkeleton />
 
     if (!produtos || produtos.length === 0) {
       return <p>Nenhum produto encontrado</p>

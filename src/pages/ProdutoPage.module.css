@@ -37,3 +37,25 @@
 .icon {
   font-size: 20px;
 }
+
+/*Acompanhamento*/
+.acompanhamento {
+  border: 1px solid #e1e1e1;
+}
+
+.acomHeader {
+  background-color: #e1e1e1;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.acomIcon {
+  font-size: 20px;
+  color: green;
+}
+
+.acomItem {
+
+}

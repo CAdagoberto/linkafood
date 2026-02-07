@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { BiAlarm, BiSolidStoreAlt  } from "react-icons/bi";
+import { BiAlarm, BiSolidStoreAlt, BiBadgeCheck   } from "react-icons/bi";
+
 
 import ProdutoService from "../services/produtos.service"
 import style from "./ProdutoPage.module.css"
+import ProdutoSkeleton from "../components/Loading/ProdutoSkeleton";
 
 export default function ProdutoPage() {
   const [isWide, setIsWide] = useState(false)
@@ -14,6 +16,7 @@ export default function ProdutoPage() {
   const [produto, setProduto] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+
 
   useEffect(() => {
     ProdutoService.getProdutoById(id)
@@ -40,7 +43,7 @@ export default function ProdutoPage() {
       }
     }, [])
 
-  if (loading) return <p>Carregando produto...</p>
+  if (loading) return <ProdutoSkeleton />
   if (error) return <p>Produto não encontrado</p>
 
   return (
@@ -72,10 +75,20 @@ export default function ProdutoPage() {
                 <BiAlarm className={style.icon} />
                 <h5>Preparo: {/* Tempo de preparo */}</h5>
               </div>
-
-
             </div>
-         
+
+            {/* Acompanhamento */}
+            {produto.acompanhamento && produto.acompanhamento.map(ac => (
+              <div key={ac.id} className={style.acompanhamento}>
+                <div className={style.acomHeader}>
+                  <h4>{ac.titulo}</h4>
+                  <BiBadgeCheck className={style.acomIcon} />
+                </div>
+
+                <div className={style.acomItens}></div>
+              </div>
+            ))}
+
           
         </div>
       </div>
