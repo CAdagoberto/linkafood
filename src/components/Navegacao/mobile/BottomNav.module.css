@@ -36,3 +36,20 @@
 .bottomNav li:hover {
   color: #007bff;
 }
+
+/*Navegação produto*/
+.addCarrinho button {
+  background-color: #008d00;
+  padding: 10px 20px;
+  border: inherit;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  width: 100%;
+  
+}
+
+.addCarrinho {
+    width: 80%;
+    padding: 10px;
+}

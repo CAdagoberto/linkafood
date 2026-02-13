@@ -23,7 +23,7 @@ async  getProdutoById(id) {
       }
 
       reject(new Error("Produto não encontrado"))
-    }, 7000)
+    }, 400)
   })
 }
 

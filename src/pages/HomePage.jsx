@@ -3,7 +3,7 @@ import HeaderLoja from '../components/HeaderLoja'
 import SearchBar from '../components/SearchBar'
 import { Categoria } from '../components/CategoriaProduto/Categoria'
 import ProdutoService  from '../services/produtos.service'
-import MobileNavbar from '../components/Navegacao/MobileNavbar'
+import MobileNavbar from '../components/Navegacao/mobile/MobileNavbar'
 import ProdutoSkeleton from "../components/Loading/ProdutoSkeleton";
 
 export default function HomePage() {
