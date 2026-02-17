@@ -1,3 +1,5 @@
+import style from './AcompanhamentoItem.module.css'
+
 import { BiBadgeCheck } from "react-icons/bi";
 import AcompanhamentoProduto from "./AcompanhamentoProduto";
 

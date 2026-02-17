@@ -24,19 +24,3 @@
   padding: 10px;
   flex-direction: column;
 }
-
-/*Item*/
-.acomItem {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.ItemTitulo h4{
-  max-width: 120px;
-}
-
-.acomItem .itemImg img{
-  width: 120px;
-}
-

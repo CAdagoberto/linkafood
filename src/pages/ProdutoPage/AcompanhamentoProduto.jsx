@@ -1,3 +1,5 @@
+import style from './AcompanhamentoProduto.module.css'
+
 export default function AcompanhamentoProduto({ produto }) {
   return (
     <div className={style.acomItem}>
