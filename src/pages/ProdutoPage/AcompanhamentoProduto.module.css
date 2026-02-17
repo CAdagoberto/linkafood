@@ -1,17 +1,56 @@
-
-
-/*Item*/
-.acomItem {
+.card {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  
+  
+  background: #fff;
+  transition: box-shadow 0.2s ease;
 }
 
-.ItemTitulo h4{
-  max-width: 120px;
+.info {
+  flex: 1;
+  padding-right: 10px;
 }
 
-.acomItem .itemImg img{
-  width: 120px;
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
 }
 
+.imageWrapper img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background-color: #f0f0f0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #e0e0e0;
+}
+
+.count {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 500;
+}
