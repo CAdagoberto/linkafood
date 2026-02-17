@@ -1,42 +1,4 @@
-.headerContent {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 
-.headerContent p {
-  color: #6d6d6d;
-}
-
-.empresaContent {
-  border: 1px solid #e6e6e6;
-  
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  color: #6d6d6d;
-
-}
-
-.empresaHeader,
-.temPreparo {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.empresaHeader {
-  border-bottom: 1px solid #e6e6e6;
-  padding: 10px;
-}
-
-.temPreparo {
-  padding: 10px;
-}
-
-.icon {
-  font-size: 20px;
-}
 
 /*Acompanhamento*/
 .acompanhamento {
@@ -54,5 +16,27 @@
 .acomIcon {
   font-size: 20px;
   color: green;
+}
+
+.acomItens {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  flex-direction: column;
+}
+
+/*Item*/
+.acomItem {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ItemTitulo h4{
+  max-width: 120px;
+}
+
+.acomItem .itemImg img{
+  width: 120px;
 }
 

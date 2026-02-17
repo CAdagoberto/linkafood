@@ -20,7 +20,7 @@ export const produtosMock = [
         descricao: "and more recently with desktop publishing software like Aldus PageMaker",
         preco: 80.9,
         qtdPessoas: 4,
-        imagem: null
+        imagem: "/assets/img/pratos/sushi.jpg"
       },
       {
         id: "3",
@@ -41,6 +41,13 @@ export const produtosMock = [
                 descricao: "and more recently with desktop publishing software like Aldus PageMaker",
                 preco: null,
                 imagem: "/assets/img/pratos/sushi1.jpg"
+              },
+              {
+                id: "2",
+                titulo: "Yakisoba",
+                descricao: "and more recently with desktop publishing software like Aldus PageMaker",
+                preco: null,
+                imagem: "/assets/img/pratos/sushi1.jpg"
               }
             ]
           },
@@ -51,7 +58,14 @@ export const produtosMock = [
             produtos: [
               {
                 id: "1",
-                titulo: "Temaky",
+                titulo: "Coca cola",
+                descricao: "and more recently with desktop publishing software like Aldus PageMaker",
+                preco: null,
+                imagem: "/assets/img/pratos/sushi1.jpg"
+              },
+              {
+                id: "2",
+                titulo: "pepsi",
                 descricao: "and more recently with desktop publishing software like Aldus PageMaker",
                 preco: null,
                 imagem: "/assets/img/pratos/sushi1.jpg"

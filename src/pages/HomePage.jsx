@@ -29,17 +29,12 @@ export default function HomePage() {
 
 
     
-      useEffect(() => {
+    useEffect(() => {
       const handleResize = () => setIsWide(window.innerWidth > 900)
-      const handleScroll = () => setShowNavbar(window.scrollY > 100)
+      handleResize() // define valor inicial
 
       window.addEventListener("resize", handleResize)
-      window.addEventListener("scroll", handleScroll)
-
-      return () => {
-        window.removeEventListener("resize", handleResize)
-        window.removeEventListener("scroll", handleScroll)
-      }
+      return () => window.removeEventListener("resize", handleResize)
     }, [])
 
 

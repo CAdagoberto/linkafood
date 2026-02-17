@@ -1,0 +1,9 @@
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.headerContent p {
+  color: #6d6d6d;
+}

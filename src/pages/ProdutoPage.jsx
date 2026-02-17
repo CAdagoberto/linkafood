@@ -1,21 +1,27 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { BiAlarm, BiSolidStoreAlt, BiBadgeCheck   } from "react-icons/bi";
-
-
 import ProdutoService from "../services/produtos.service"
-import style from "./ProdutoPage.module.css"
 import ProdutoSkeleton from "../components/Loading/ProdutoSkeleton";
+import ProdutoHero from './ProdutoPage/ProdutoHero'
+import ProdutoInfo from './ProdutoPage/ProdutoInfo'
+import EmpresaInfo from './ProdutoPage/EmpresaInfo'
+import AcompanhamentoList from './ProdutoPage/AcompanhamentoList'
+
 
 export default function ProdutoPage() {
   const [isWide, setIsWide] = useState(false)
-  const [showNavbar, setShowNavbar] = useState(false)
 
   const { id } = useParams()
 
   const [produto, setProduto] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+
+  const formatPrice = (value) =>
+  new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(value)
 
 
   useEffect(() => {
@@ -31,67 +37,29 @@ export default function ProdutoPage() {
   }, [id])
 
   useEffect(() => {
-      const handleResize = () => setIsWide(window.innerWidth > 900)
-      const handleScroll = () => setShowNavbar(window.scrollY > 100)
+    const handleResize = () => setIsWide(window.innerWidth > 900)
+    handleResize() // define valor inicial
 
-      window.addEventListener("resize", handleResize)
-      window.addEventListener("scroll", handleScroll)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
-      return () => {
-        window.removeEventListener("resize", handleResize)
-        window.removeEventListener("scroll", handleScroll)
-      }
-    }, [])
 
   if (loading) return <ProdutoSkeleton />
   if (error) return <p>Produto não encontrado</p>
 
   return (
-    <div className={` ${isWide ? "container" : ""}`}>
-      <div className="header">
-        <img src={produto.imagem} alt={produto.titulo} />
-      </div>
+    <div className={isWide ? "container" : ""}>
+      <ProdutoHero produto={produto} />
 
       <div className="bodyApp">
         <div className="bodyContainer">
-          
-            <div className={style.headerContent}>
-              <h3>{produto.titulo}</h3>
-              <p>{produto.descricao}</p>
-            </div>
-
-            <h4>Serve {produto.qtdPessoas} Pessoas</h4>
-
-            <h3 className="valor">
-              R$ {produto.preco.toFixed(2)}
-            </h3>
-
-            <div className={style.empresaContent}>
-              <div className={style.empresaHeader}>
-              <BiSolidStoreAlt className={style.icon} />
-                <h5>Nome da loja - Localização</h5>
-              </div>
-              <div className={style.temPreparo}>
-                <BiAlarm className={style.icon} />
-                <h5>Preparo: {/* Tempo de preparo */}</h5>
-              </div>
-            </div>
-
-            {/* Acompanhamento */}
-            {produto.acompanhamento && produto.acompanhamento.map(ac => (
-              <div key={ac.id} className={style.acompanhamento}>
-                <div className={style.acomHeader}>
-                  <h4>{ac.titulo}</h4>
-                  <BiBadgeCheck className={style.acomIcon} />
-                </div>
-
-                <div className={style.acomItens}></div>
-              </div>
-            ))}
-
-          
+          <ProdutoInfo produto={produto} />
+          <EmpresaInfo />
+          <AcompanhamentoList acompanhamentos={produto.acompanhamento} />
         </div>
       </div>
     </div>
   )
+
 }
