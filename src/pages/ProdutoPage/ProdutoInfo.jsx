@@ -1,6 +1,14 @@
-import style from 'ProdutoInfo.module.css'
+import style from './ProdutoInfo.module.css'
 
 export default function ProdutoInfo({ produto }) {
+
+    const formatPrice = (value) =>
+  new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(value)
+
+
   return (
     <>
       <div className={style.headerContent}>

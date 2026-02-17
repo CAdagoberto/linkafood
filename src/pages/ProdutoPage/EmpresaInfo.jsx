@@ -1,5 +1,6 @@
 import { BiAlarm, BiSolidStoreAlt } from "react-icons/bi";
-import style from 'EmpresaInfo.module.css'
+import style from './EmpresaInfo.module.css'
+
 export default function EmpresaInfo() {
   return (
     <div className={style.empresaContent}>

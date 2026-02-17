@@ -17,11 +17,7 @@ export default function ProdutoPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
-  const formatPrice = (value) =>
-  new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(value)
+
 
 
   useEffect(() => {
