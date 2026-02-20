@@ -31,10 +31,15 @@ export default function HomePage() {
     
     useEffect(() => {
       const handleResize = () => setIsWide(window.innerWidth > 900)
-      handleResize() // define valor inicial
+      const handleScroll = () => setShowNavbar(window.scrollY > 100)
 
       window.addEventListener("resize", handleResize)
-      return () => window.removeEventListener("resize", handleResize)
+      window.addEventListener("scroll", handleScroll)
+
+      return () => {
+        window.removeEventListener("resize", handleResize)
+        window.removeEventListener("scroll", handleScroll)
+      }
     }, [])
 
 
@@ -56,6 +61,7 @@ export default function HomePage() {
         <div className={` ${isWide ? "container" : ""}`}>
                  <MobileNavbar lojaNome="Minha Loja" categorias={categorias}  visible={showNavbar} />
         
+                {/* Colocar Imagem referente ao tema da loja */}
                 <div className='header'>
                 <img src="../assets/img/loja/loja1.jpg" alt="" />
                 </div>

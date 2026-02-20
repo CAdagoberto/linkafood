@@ -6,10 +6,14 @@ import ProdutoHero from './ProdutoPage/ProdutoHero'
 import ProdutoInfo from './ProdutoPage/ProdutoInfo'
 import EmpresaInfo from './ProdutoPage/EmpresaInfo'
 import AcompanhamentoList from './ProdutoPage/AcompanhamentoList'
+import MobileNavbarProduto from "../components/Navegacao/mobile/MobileNavbarProduto";
+
+
 
 
 export default function ProdutoPage() {
   const [isWide, setIsWide] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(false)
 
   const { id } = useParams()
 
@@ -32,13 +36,18 @@ export default function ProdutoPage() {
       })
   }, [id])
 
-  useEffect(() => {
-    const handleResize = () => setIsWide(window.innerWidth > 900)
-    handleResize() // define valor inicial
+useEffect(() => {
+      const handleResize = () => setIsWide(window.innerWidth > 900)
+      const handleScroll = () => setShowNavbar(window.scrollY > 50)
 
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+      window.addEventListener("resize", handleResize)
+      window.addEventListener("scroll", handleScroll)
+
+      return () => {
+        window.removeEventListener("resize", handleResize)
+        window.removeEventListener("scroll", handleScroll)
+      }
+    }, [])
 
 
   if (loading) return <ProdutoSkeleton />
@@ -46,6 +55,8 @@ export default function ProdutoPage() {
 
   return (
     <div className={isWide ? "container" : ""}>
+      <MobileNavbarProduto produto={produto.titulo} visible={showNavbar} />
+
       <ProdutoHero produto={produto} />
 
       <div className="bodyApp">
