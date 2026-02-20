@@ -4,7 +4,7 @@ export default function AcompanhamentoProduto({ produto }) {
   return (
     <div className={style.card}>
       <div className={style.info}>
-        <h5 className={style.title}>{produto.titulo}</h5>
+        <h5 className={style.title}>{produto.titulo} + {produto.preco}</h5>
       </div>
 
       <div className={style.imageWrapper}>

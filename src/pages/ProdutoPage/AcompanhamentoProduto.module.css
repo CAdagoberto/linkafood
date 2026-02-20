@@ -3,10 +3,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px;
-  
-  
+  border-bottom: 1px solid rgb(194, 194, 194);
   background: #fff;
   transition: box-shadow 0.2s ease;
+}
+
+.card:last-child {
+  border-bottom: inherit;
 }
 
 .info {
